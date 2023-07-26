@@ -2,6 +2,7 @@ package au.net.causal.beanbanisher;
 
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -11,6 +12,15 @@ import java.util.List;
 
 public class BeanBanisherListener implements SpringApplicationRunListener
 {
+    public BeanBanisherListener(SpringApplication application, String[] args)
+    {
+        this();
+    }
+
+    public BeanBanisherListener()
+    {
+    }
+
     @Override
     public void contextPrepared(ConfigurableApplicationContext context)
     {
