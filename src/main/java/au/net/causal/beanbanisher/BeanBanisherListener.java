@@ -25,10 +25,10 @@ public class BeanBanisherListener implements SpringApplicationRunListener
     public void contextPrepared(ConfigurableApplicationContext context)
     {
         ConfigurableEnvironment env = context.getEnvironment();
-        List<String> beanNames = Arrays.asList(env.getProperty("beanbanisher.beanNames", String[].class, new String[0]));
-        List<String> beanClassNames = Arrays.asList(env.getProperty("beanbanisher.beanClassNames", String[].class, new String[0]));
+        List<String> beanNames = Arrays.asList(env.getProperty("beanBanisher.beanNames", String[].class, new String[0]));
+        List<String> beanClassNames = Arrays.asList(env.getProperty("beanBanisher.beanClassNames", String[].class, new String[0]));
 
-        ((BeanDefinitionRegistry)context).registerBeanDefinition("beanbanisher", BeanDefinitionBuilder.genericBeanDefinition(BeanBanisherRegistryPostProcessor.class,
+        ((BeanDefinitionRegistry)context).registerBeanDefinition("beanBanisher", BeanDefinitionBuilder.genericBeanDefinition(BeanBanisherRegistryPostProcessor.class,
              () -> new BeanBanisherRegistryPostProcessor(beanNames, beanClassNames)).getBeanDefinition());
     }
 }
